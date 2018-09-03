@@ -1,7 +1,10 @@
 package main
 
 import (
+	"context"
 	"fmt"
+
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func main() {
@@ -11,22 +14,6 @@ func main() {
 	is := &indicesService{
 		ec: *esc,
 	}
-
-	// prefixes := []string{
-	// 	"logstash-elb-",
-	// 	"logstash-billing-",
-	// 	"logstash-cf-access-",
-	// 	"logstash-prod-logfarm-applicationlogs-",
-	// 	"logstash-prod-logstore-globalcloudtraillog-",
-	// 	"logstash-prod-logstore-lxauthlog-mvqrjxk9bzkd-",
-	// 	"logstash-prod-logstore-lxdockerlog-dhytnf0s89m1-",
-	// 	"logstash-prod-logstore-lxsyslog-1uhlj0yn1qf1c-",
-	// 	"logstash-prod-logstore-vpctrafficlog-ojme7t4aky29-",
-	// 	"logstash-prod-snowplow-enrichedstream-1maltgsi3y3xd-",
-	// 	"logstash-s3-access-",
-	// }
-
-	// is.ReportByIndexGrouping(prefixes)
 
 	is.Purge("logstash-prod-logstore-globalcloudtraillog-", 28)
 
@@ -40,4 +27,10 @@ func main() {
 	is.Purge("logstash-prod-logstore-lxdockerlog-dhytnf0s89m1-", 7)
 
 	fmt.Println("Operation completed...")
+
+	lambda.Start(HandleRequest)
+}
+
+func HandleRequest(ctx context.Context) (string, error) {
+	return fmt.Sprintf("Operation completed..."), nil
 }
