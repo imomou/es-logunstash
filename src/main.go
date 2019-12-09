@@ -15,16 +15,18 @@ func main() {
 		ec: *esc,
 	}
 
-	is.Purge("logstash-prod-logstore-globalcloudtraillog-", 28)
+	is.Purge("logstash-prod-logstore-globalcloudtraillog-", 60)
 
-	is.Purge("logstash-prod-logfarm-applicationlogs-", 14)
+	is.Purge("logstash-prod-logfarm-applicationlogs-", 7)
 	is.Purge("logstash-elb-", 14)
 
-	is.Purge("logstash-cf-access-", 7)
-	is.Purge("logstash-s3-access-", 7)
-	is.Purge("logstash-prod-snowplow-enrichedstream-1maltgsi3y3xd-", 7)
-	is.Purge("logstash-prod-logstore-vpctrafficlog-ojme7t4aky29-", 7)
-	is.Purge("logstash-prod-logstore-lxdockerlog-dhytnf0s89m1-", 7)
+	is.Purge("logstash-cf-access-", 5)
+	is.Purge("logstash-s3-access-", 5)
+	is.Purge("logstash-prod-logstore-vpctrafficlog-", 3)
+	is.Purge("logstash-prod-logstore-lxsyslog-", 7)
+	is.Purge("logstash-prod-snowplow-enrichedstream-1maltgsi3y3xd-", 3)
+	is.Purge("logstash-prod-logstore-vpctrafficlog-ojme7t4aky29-", 3)
+	is.Purge("logstash-prod-logstore-lxdockerlog-dhytnf0s89m1-", 3)
 
 	fmt.Println("Operation completed...")
 
