@@ -18,9 +18,9 @@ func main() {
 	is.Purge("logstash-prod-logstore-globalcloudtraillog-", 60)
 
 	is.Purge("logstash-prod-logfarm-applicationlogs-", 7)
-	is.Purge("logstash-elb-", 14)
+	is.Purge("logstash-elb-", 7)
 
-	is.Purge("logstash-cf-access-", 5)
+	is.Purge("logstash-cf-access-", 3)
 	is.Purge("logstash-s3-access-", 5)
 	is.Purge("logstash-prod-logstore-vpctrafficlog-", 3)
 	is.Purge("logstash-prod-logstore-lxsyslog-", 7)
